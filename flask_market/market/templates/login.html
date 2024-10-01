@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+    Login Page
+{% endblock %}
+
+{% block content %}
+<style>
+    body.login-page {
+        background-image: url('https://images.unsplash.com/photo-1570980404730-a0e14fef178f?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); /* Replace with your image URL */
+        background-size: cover; /* Cover the entire page */
+        background-position: center; /* Center the image */
+        background-repeat: no-repeat; /* Prevent the image from repeating */
+        height: 100vh; /* Full height */
+        margin: 0; /* Remove default margin */
+    }
+</style>
+
+<body class="text-center login-page">
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        <div class="login-box p-4" style="background-color: rgba(0, 0, 0, 0.7); border-radius: 15px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+            <form method="POST" class="form-signin" style="color:white">
+                {{ form.hidden_tag() }}
+                <h1 class="h3 mb-3 font-weight-normal">Please Login</h1>
+                <br>
+                {{ form.username.label() }}
+                {{ form.username(class="form-control", placeholder="User Name") }}
+
+                {{ form.password.label() }}
+                {{ form.password(class="form-control", placeholder="Password") }}
+
+                <br>
+                {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+                <br>
+
+                <div class="checkbox mb-3">
+                    <h6>Do not have an account?</h6>
+                    <a class="btn btn-sm btn-secondary" href="{{ url_for('register_page') }}">Register</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+{% endblock %}
